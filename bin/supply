@@ -6,6 +6,12 @@ CACHE_DIR=$2
 DEPS_DIR=$3
 DEPS_IDX=$4
 
+# install openjdk-11-jre
+echo "-----> Installing openjdk-11-jre"
+apt update
+apt install openjdk-11-jre -y
+echo "       PATH=${PATH}"
+
 export BUILDPACK_DIR=`dirname $(readlink -f ${BASH_SOURCE%/*})`
 source "$BUILDPACK_DIR/scripts/install_go.sh"
 output_dir=$(mktemp -d -t supplyXXX)
